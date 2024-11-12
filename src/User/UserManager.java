@@ -27,8 +27,20 @@ public class UserManager implements UserServices {
     }
 
     @Override
+    public void update(int id, User user) {
+        for (int i = 0; i < count; i++) {
+            if (users[i].getID() == id) {
+                users[i].setID(id);
+                users[i].setPassword(user.getPassword());
+                users[i].setUsername(user.getUsername());
+                System.out.println("Updated successfully !!!");
+            }
+        }
+    }
+
+    @Override
     public void get(int id) {
-        for (int i = 0; i < users.length; i++) {
+        for (int i = 0; i < count; i++) {
             if (users[i].getID() == id) {
                 System.out.println("ID: " + users[i].getID() + "," + "Username: " + users[i].getUsername() + "," + "Password: " + users[i].getPassword());
                 return;
@@ -59,16 +71,4 @@ public class UserManager implements UserServices {
         return nonNullBook;
     }
 
-
-    @Override
-    public void update(int id, User user) {
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getID() == id) {
-                users[i] = user;
-                System.out.println("User information updated successfully !!!");
-                return;
-            }
-            System.out.println("Searching ID does not match with your eneterd ID");
-        }
-    }
 }

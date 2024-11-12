@@ -1,7 +1,5 @@
 import User.User;
 import User.UserManager;
-import jdk.jshell.spi.ExecutionControl;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -38,13 +36,11 @@ public class Main {
                 case 3:
                     System.out.print("Enter ID for update User information: ");
                     int updID = scanner.nextInt();
-                    System.out.print("Enter new ID: ");
-                    int IDN = scanner.nextInt();
                     System.out.print("Enter new UserName: ");
                     String usernameN = scanner.next();
                     System.out.print("Enter new Password: ");
                     int passwordN = scanner.nextInt();
-                    userManager.update(updID,new User(IDN,usernameN,passwordN));
+                    userManager.update(updID,new User(updID,usernameN,passwordN));
                     break;
 
                 case 4:
