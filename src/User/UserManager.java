@@ -1,7 +1,7 @@
 package User;
 
 public class UserManager implements UserServices {
-    User[] users = new User[2];
+    User[] users = new User[20];
     int count = 0;
     public int idAuto = 1;
 
