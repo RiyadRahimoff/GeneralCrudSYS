@@ -3,19 +3,21 @@ import User.UserManager;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class Main extends UserManager {
     public static void main(String[] args) {
         UserManager userManager = new UserManager();
         Scanner scanner = new Scanner(System.in);
-        int idAuto=1;
-        while (true) {
+
+        boolean f = true;
+        while (f) {
             System.out.println("Welcome back!!! Select operation");
             System.out.println("1.Add user");
             System.out.println("2.Delete user");
             System.out.println("3.Update user information");
             System.out.println("4.Get user match by ID ");
             System.out.println("5.Show all users");
-            System.out.println("6.Exit system");
+            System.out.println("6.Login");
+            System.out.println("7.Exit system");
             System.out.print("Enter your choice: ");
             int a = scanner.nextInt();
             switch (a) {
@@ -25,11 +27,7 @@ public class Main {
                     String username = scanner.next();
                     System.out.print("Enter Password: ");
                     int password = scanner.nextInt();
-                    userManager.add(new User(idAuto,username,password));
-                    System.out.println("Each user has own unique ID. Don't forget ID");
-                    System.out.println("Your id: "+idAuto);
-                    System.out.println("--------------------------------------------------------------");
-                    idAuto++;
+                    userManager.add(new User(userManager.idAuto, username, password));
                     break;
 
                 case 2:
@@ -45,7 +43,7 @@ public class Main {
                     String usernameN = scanner.next();
                     System.out.print("Enter new Password: ");
                     int passwordN = scanner.nextInt();
-                    userManager.update(updID,new User(updID,usernameN,passwordN));
+                    userManager.update(updID, new User(updID, usernameN, passwordN));
                     System.out.println("--------------------------------------------------------------");
                     break;
 
@@ -61,6 +59,19 @@ public class Main {
                     System.out.println("--------------------------------------------------------------");
                     break;
 
+                case 6:
+                    System.out.print("Enter ID: ");
+                    int loginID = scanner.nextInt();
+                    System.out.print("Enter Password: ");
+                    int loginPass = scanner.nextInt();
+                    userManager.login(loginID, loginPass);
+                    System.out.println("--------------------------------------------------------------");
+                    break;
+                case 7:
+                    System.out.println("--------------------------------------------------------------");
+                    f = false;
+                    System.out.println("Successfuly exited");
+                    break;
                 default:
                     System.out.println("Input error !!!");
                     System.out.println("--------------------------------------------------------------");

@@ -1,9 +1,9 @@
 package User;
 
 public class UserManager implements UserServices {
-    User[] users = new User[100];
+    User[] users = new User[2];
     int count = 0;
-
+    public int idAuto = 1;
 
     @Override
     public void add(User user) {
@@ -11,6 +11,13 @@ public class UserManager implements UserServices {
             users[count] = user;
             System.out.println("User joined !!!");
             count++;
+            System.out.println("Each user has own unique ID. Don't forget ID");
+            System.out.println("Your id: " + idAuto);
+            System.out.println("--------------------------------------------------------------");
+            idAuto++;
+        } else {
+            System.out.println("Data is full !!!");
+            System.out.println("--------------------------------------------------------------");
         }
     }
 
@@ -43,12 +50,23 @@ public class UserManager implements UserServices {
     public void get(int id) {
         for (int i = 0; i < count; i++) {
             if (users[i].getId() == id) {
-                System.out.println("ID: " + users[i].getId() + "," + "Username: " + users[i].getUsername() + "," + "Password: " + users[i].getPassword());
+                System.out.println("ID: " + users[i].getId() + "," + "Username: "
+                        + users[i].getUsername() + "," + "Password: " + users[i].getPassword());
                 return;
             }
 
         }
 
+    }
+
+    @Override
+    public void login(int id, int pass) {
+        for (int i = 0; i < count; i++) {
+            if (users[i].getId() == id & users[i].getPassword() == pass) {
+                System.out.println("Welcome " + users[i].getUsername());
+                break;
+            }
+        }
     }
 
     @Override
