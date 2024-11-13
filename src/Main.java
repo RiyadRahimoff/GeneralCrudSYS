@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         UserManager userManager = new UserManager();
         Scanner scanner = new Scanner(System.in);
+        int idAuto=1;
         while (true) {
             System.out.println("Welcome back!!! Select operation");
             System.out.println("1.Add user");
@@ -19,19 +20,23 @@ public class Main {
             int a = scanner.nextInt();
             switch (a) {
                 case 1:
-                    System.out.print("Enter ID: ");
-                    int ID = scanner.nextInt();
+
                     System.out.print("Enter UserName: ");
                     String username = scanner.next();
                     System.out.print("Enter Password: ");
                     int password = scanner.nextInt();
-                    userManager.add(new User(ID,username,password));
+                    userManager.add(new User(idAuto,username,password));
+                    System.out.println("Each user has own unique ID. Don't forget ID");
+                    System.out.println("Your id: "+idAuto);
+                    System.out.println("--------------------------------------------------------------");
+                    idAuto++;
                     break;
 
                 case 2:
                     System.out.print("Enter ID for delete User: ");
                     int delID = scanner.nextInt();
                     userManager.delete(delID);
+                    System.out.println("--------------------------------------------------------------");
                     break;
                 case 3:
                     System.out.print("Enter ID for update User information: ");
@@ -41,20 +46,24 @@ public class Main {
                     System.out.print("Enter new Password: ");
                     int passwordN = scanner.nextInt();
                     userManager.update(updID,new User(updID,usernameN,passwordN));
+                    System.out.println("--------------------------------------------------------------");
                     break;
 
                 case 4:
                     System.out.print("Enter ID for show info User: ");
                     int showID = scanner.nextInt();
                     userManager.get(showID);
+                    System.out.println("--------------------------------------------------------------");
                     break;
 
                 case 5:
                     System.out.println(Arrays.toString(userManager.getAll()));
+                    System.out.println("--------------------------------------------------------------");
                     break;
 
                 default:
                     System.out.println("Input error !!!");
+                    System.out.println("--------------------------------------------------------------");
             }
         }
     }

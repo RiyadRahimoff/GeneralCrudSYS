@@ -1,17 +1,17 @@
 package User;
 public class User {
-   private int ID;
+   private int id;
    private String Username;
    private int password;
 
    public User(int ID,String Username,int password){
-      this.ID=ID;
+      this.id =ID;
       this.Username=Username;
       this.password=password;
    }
 
-   public int getID() {
-      return ID;
+   public int getId() {
+      return id;
    }
    public  String getUsername(){
       return Username;
@@ -21,8 +21,8 @@ public class User {
       return password;
    }
 
-   public void setID(int ID) {
-      this.ID = ID;
+   public void setId(int id) {
+      this.id = id;
    }
    public void setUsername(String username){
       this.Username=username;
@@ -34,7 +34,7 @@ public class User {
    @Override
    public String toString() {
       return "User{" +
-              "ID=" + ID +
+              "id=" + id +
               ", Username='" + Username + '\'' +
               ", password=" + password +
               '}';
