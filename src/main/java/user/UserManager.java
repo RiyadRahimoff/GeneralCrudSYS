@@ -1,4 +1,4 @@
-package User;
+package user;
 
 public class UserManager implements UserServices {
     User[] users = new User[20];
@@ -23,10 +23,9 @@ public class UserManager implements UserServices {
 
     @Override
     public void delete(int id) {
-        for (int i = 0; i < users.length; i++) {
+        for (int i = 0; i < count; i++) {
             if (users[i].getId() == id) {
-                users[count - 1] = null;
-                count--;
+                users[--count] = null;
                 System.out.println("User deleted !!!");
                 return;
             }

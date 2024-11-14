@@ -1,4 +1,4 @@
-package User;
+package user;
 
 public interface UserServices {
     void add(User user);
