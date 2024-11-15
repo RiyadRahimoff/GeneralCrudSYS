@@ -1,7 +1,5 @@
 package studentp;
 
-import user.User;
-
 public class StudentServiceHandler implements StudentService {
     Student[] students = new Student[100];
     int count = 0;
@@ -54,19 +52,13 @@ public class StudentServiceHandler implements StudentService {
     }
 
     @Override
-    public void getStudent(int id) {
-        boolean found = false;
+    public Student getStudent(int id) {
         for (int i = 0; i < count; i++) {
             if (students[i].getId() == id) {
-                System.out.println("ID: " + students[i].getId() + "," + "Username: " + students[i].getName() + "," + "Age: " + students[i].getAge());
-                found = true;
-                return;
+                return students[i];
             }
-
         }
-        if (!found) {
-            System.out.println("Student info not found!!!");
-        }
+        return null;
     }
 
     @Override

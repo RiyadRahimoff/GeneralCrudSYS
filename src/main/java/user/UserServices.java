@@ -1,11 +1,16 @@
 package user;
 
 public interface UserServices {
-    void add(User user);
+    void add(String name, int password);
+
     void delete(int id);
-    void update(int id,User user);
-    void get(int id);
-    void login(int id,int pass);
+
+    void update(int id, String name, int pass);
+
+    User get(int id);
+
+    void login(int id, int pass);
+
     User[] getAll();
 
 

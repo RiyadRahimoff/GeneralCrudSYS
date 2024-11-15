@@ -7,7 +7,7 @@ public interface StudentService {
 
     void update(int id, String name, int age);
 
-    void getStudent(int id);
+    Student getStudent(int id);
 
     Student[] getAll();
 

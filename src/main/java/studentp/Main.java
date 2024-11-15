@@ -1,10 +1,11 @@
-import studentp.StudentServiceHandler;
-import user.UserManager;
+package studentp;
+
+import user.UserServiceHandler;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main extends UserManager {
+public class Main extends UserServiceHandler {
     public static void main(String[] args) {
         StudentServiceHandler studentServiceHandler = new StudentServiceHandler();
         Scanner scanner = new Scanner(System.in);
@@ -50,7 +51,7 @@ public class Main extends UserManager {
                 case 4:
                     System.out.print("Enter ID for show info Student: ");
                     int showID = scanner.nextInt();
-                    studentServiceHandler.getStudent(showID);
+                    System.out.println(studentServiceHandler.getStudent(showID));
                     System.out.println("--------------------------------------------------------------");
                     break;
 
