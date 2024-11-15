@@ -1,7 +1,7 @@
 package studentp;
 
 public interface StudentService {
-    void add(Student student);
+    void add(String name, int age);
 
     void delete(int id);
 

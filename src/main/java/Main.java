@@ -1,7 +1,6 @@
-import studentp.Student;
 import studentp.StudentServiceHandler;
-import user.User;
 import user.UserManager;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -27,8 +26,8 @@ public class Main extends UserManager {
                     System.out.print("Enter UserName: ");
                     String username = scanner.next();
                     System.out.print("Enter Age: ");
-                    int password = scanner.nextInt();
-                    studentServiceHandler.add(new Student(studentServiceHandler.idAuto, username, password));
+                    int ageAdd = scanner.nextInt();
+                    studentServiceHandler.add(username, ageAdd);
                     break;
 
                 case 2:
@@ -44,7 +43,7 @@ public class Main extends UserManager {
                     String usernameN = scanner.next();
                     System.out.print("Enter new Age: ");
                     int age = scanner.nextInt();
-                    studentServiceHandler.update(updID, usernameN,age);
+                    studentServiceHandler.update(updID, usernameN, age);
                     System.out.println("--------------------------------------------------------------");
                     break;
 

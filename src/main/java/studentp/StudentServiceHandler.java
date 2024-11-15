@@ -8,9 +8,9 @@ public class StudentServiceHandler implements StudentService {
     public int idAuto = 1;
 
     @Override
-    public void add(Student student) {
+    public void add(String name, int age) {
         if (count < students.length) {
-            students[count++] = student;
+            students[count++] = new Student(idAuto, name, age);
             System.out.println("Student added sucessfully !!! ");
             System.out.println("Each user has own unique ID. Don't forget ID");
             System.out.println("Your id: " + idAuto);
@@ -38,24 +38,34 @@ public class StudentServiceHandler implements StudentService {
 
     @Override
     public void update(int id, String name, int age) {
-       for (int i =0;i<count;i++){
-           if(students[i].getId()==id){
-               students[i].setAge(age);
-               students[i].setName(name);
-               System.out.println("Sucessfully updated!!!");
-           }
-       }
+        boolean updated = false;
+        for (int i = 0; i < count; i++) {
+            if (students[i].getId() == id) {
+                students[i].setName(name);
+                students[i].setAge(age);
+                System.out.println("Successfully updated!!!");
+                updated = true;
+                break;
+            }
+        }
+        if (!updated) {
+            System.out.println("ID is incorrect!!!");
+        }
     }
 
     @Override
     public void getStudent(int id) {
+        boolean found = false;
         for (int i = 0; i < count; i++) {
             if (students[i].getId() == id) {
-                System.out.println("ID: " + students[i].getId() + "," + "Username: "
-                        + students[i].getName() + "," + "Age: " + students[i].getAge());
+                System.out.println("ID: " + students[i].getId() + "," + "Username: " + students[i].getName() + "," + "Age: " + students[i].getAge());
+                found = true;
                 return;
             }
 
+        }
+        if (!found) {
+            System.out.println("Student info not found!!!");
         }
     }
 
@@ -77,8 +87,12 @@ public class StudentServiceHandler implements StudentService {
                 students1[index++] = students[i];
             }
         }
+        if (count == 0) {
+            System.out.println("No students found!");
+        }
 
         return students1;
+
     }
 
 
