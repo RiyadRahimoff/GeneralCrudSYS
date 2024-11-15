@@ -65,6 +65,7 @@ public class Main extends UserServiceHandler {
                     System.out.println("--------------------------------------------------------------");
                     f = false;
                     System.out.println("Successfuly exited");
+                    scanner.close();
                     break;
                 default:
                     System.out.println("Input error !!!");
