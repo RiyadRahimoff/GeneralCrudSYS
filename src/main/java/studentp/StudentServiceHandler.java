@@ -2,16 +2,15 @@ package studentp;
 
 public class StudentServiceHandler implements StudentService {
     Student[] students = new Student[100];
-    int count = 0;
-    public int idAuto = 1;
+    private int count = 0;
+    private int idAuto = 1;
 
     @Override
     public void add(String name, int age) {
         if (count < students.length) {
             students[count++] = new Student(idAuto, name, age);
             System.out.println("Student added sucessfully !!! ");
-            System.out.println("Each user has own unique ID. Don't forget ID");
-            System.out.println("Your id: " + idAuto);
+            System.out.println("Your id: " + idAuto); // Bura vacibdir çünki İD- ni idtifadəçiyə göstərir
             idAuto++;
         } else {
             System.out.println("Data is full !!!");
@@ -20,6 +19,7 @@ public class StudentServiceHandler implements StudentService {
 
     @Override
     public void delete(int id) {
+        boolean founded = false;
         for (int i = 0; i < count; i++) {
             if (students[i].getId() == id) {
                 for (int j = i; j < count - 1; j++) {
@@ -28,10 +28,13 @@ public class StudentServiceHandler implements StudentService {
                 students[count - 1] = null;
                 count--;
                 System.out.println("Student removed !!!");
-                return;
+                founded = true;
+                break; // return ile eyni xidmeti gösterir. Break yazdım.
             }
         }
-        System.out.println("ID is not correct");
+        if (!founded) {
+            System.out.println("Matching ID not found !!!");
+        }
     }
 
     @Override
@@ -55,6 +58,7 @@ public class StudentServiceHandler implements StudentService {
     public Student getStudent(int id) {
         for (int i = 0; i < count; i++) {
             if (students[i].getId() == id) {
+                System.out.print("Student with id: " + id + "  found: ");
                 return students[i];
             }
         }

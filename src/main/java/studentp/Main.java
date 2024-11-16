@@ -1,6 +1,6 @@
 package studentp;
 
-import user.UserServiceHandler;
+import userp.UserServiceHandler;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -10,8 +10,7 @@ public class Main extends UserServiceHandler {
         StudentServiceHandler studentServiceHandler = new StudentServiceHandler();
         Scanner scanner = new Scanner(System.in);
 
-        boolean f = true;
-        while (f) {
+        while (true) {
             System.out.println("Welcome back!!! Select operation");
             System.out.println("1.Add student");
             System.out.println("2.Delete student");
@@ -63,10 +62,9 @@ public class Main extends UserServiceHandler {
 
                 case 6:
                     System.out.println("--------------------------------------------------------------");
-                    f = false;
                     System.out.println("Successfuly exited");
                     scanner.close();
-                    break;
+                    return;
                 default:
                     System.out.println("Input error !!!");
                     System.out.println("--------------------------------------------------------------");

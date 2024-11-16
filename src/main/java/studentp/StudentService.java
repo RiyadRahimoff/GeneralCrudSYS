@@ -10,5 +10,4 @@ public interface StudentService {
     Student getStudent(int id);
 
     Student[] getAll();
-
 }
