@@ -3,15 +3,15 @@ package studentp;
 public class StudentServiceHandler implements StudentService {
     Student[] students = new Student[100];
     private int count = 0;
-    private int idAuto = 1;
+    private int id = 1;
 
     @Override
     public void add(String name, int age) {
         if (count < students.length) {
-            students[count++] = new Student(idAuto, name, age);
+            students[count++] = new Student(id, name, age);
             System.out.println("Student added sucessfully !!! ");
-            System.out.println("Your id: " + idAuto); // Bura vacibdir çünki İD- ni idtifadəçiyə göstərir
-            idAuto++;
+            System.out.println("Your id: " + id);
+            id++;
         } else {
             System.out.println("Data is full !!!");
         }
@@ -29,7 +29,7 @@ public class StudentServiceHandler implements StudentService {
                 count--;
                 System.out.println("Student removed !!!");
                 founded = true;
-                break; // return ile eyni xidmeti gösterir. Break yazdım.
+                break; 
             }
         }
         if (!founded) {
@@ -56,11 +56,16 @@ public class StudentServiceHandler implements StudentService {
 
     @Override
     public Student getStudent(int id) {
+        boolean get =false;
         for (int i = 0; i < count; i++) {
             if (students[i].getId() == id) {
                 System.out.print("Student with id: " + id + "  found: ");
                 return students[i];
             }
+        }
+
+        if (!get) {
+            System.out.println("ID is incorrect!!!");
         }
         return null;
     }

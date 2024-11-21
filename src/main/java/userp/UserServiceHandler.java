@@ -1,9 +1,9 @@
-package user;
+package userp;
 
 public class UserServiceHandler implements UserServices {
     User[] users = new User[100];
-    int count = 0;
-    public int idAuto = 1;
+    private int count = 0;
+    private int idAuto = 1;
 
     @Override
     public void add(String name, int age) {

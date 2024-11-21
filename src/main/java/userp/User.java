@@ -1,4 +1,4 @@
-package user;
+package userp;
 
 public class User {
     private int id;

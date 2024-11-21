@@ -1,4 +1,4 @@
-package user;
+package userp;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -19,7 +19,7 @@ public class Main extends UserServiceHandler {
             System.out.println("6.Login");
             System.out.println("7.Exit system");
             System.out.print("Enter your choice: ");
-            int a = scanner.nextInt();
+            int a = 7;
             switch (a) {
                 case 1:
 

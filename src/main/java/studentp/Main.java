@@ -9,7 +9,6 @@ public class Main extends UserServiceHandler {
     public static void main(String[] args) {
         StudentServiceHandler studentServiceHandler = new StudentServiceHandler();
         Scanner scanner = new Scanner(System.in);
-
         while (true) {
             System.out.println("Welcome back!!! Select operation");
             System.out.println("1.Add student");

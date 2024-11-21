@@ -1,4 +1,4 @@
-package user;
+package userp;
 
 public interface UserServices {
     void add(String name, int password);
