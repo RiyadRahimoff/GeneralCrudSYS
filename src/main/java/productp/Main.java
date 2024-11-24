@@ -16,7 +16,8 @@ public class Main {
             System.out.println("3. Update product information");
             System.out.println("4. Get product by ID");
             System.out.println("5. Show all products");
-            System.out.println("6. Exit system");
+            System.out.println("6.Show product count");
+            System.out.println("7. Exit system");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             switch (choice) {
@@ -64,6 +65,10 @@ public class Main {
                     break;
 
                 case 6:
+                    productServiceHandler.count();
+                    break;
+
+                case 7:
                     System.out.println("Exiting the system... Goodbye!");
                     scanner.close();
                     return;

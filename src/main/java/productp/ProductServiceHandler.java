@@ -6,12 +6,14 @@ import java.util.List;
 public class ProductServiceHandler implements ProductService {
     ArrayList<Product> products = new ArrayList<>();
     private int idAuto = 1;
+    private int count = 0;
 
     @Override
     public void add(String productName, int price) {
         products.add(new Product(idAuto, productName, price));
         System.out.println("Product added sucessfully!");
         idAuto++;
+        count++;
     }
 
     @Override
@@ -49,5 +51,10 @@ public class ProductServiceHandler implements ProductService {
     @Override
     public List<Product> getAll() {
         return new ArrayList<>(products);
+    }
+
+    @Override
+    public void count() {
+        System.out.println("Product count in your data:  " + count);
     }
 }

@@ -1,4 +1,4 @@
-package Exception;
+package exception;
 
 public class MusicNotFoundExcep extends RuntimeException{
    public MusicNotFoundExcep(){

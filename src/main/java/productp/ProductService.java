@@ -12,4 +12,6 @@ public interface ProductService {
     Product get(int id);
 
     List<Product> getAll();
+
+    void count();
 }
